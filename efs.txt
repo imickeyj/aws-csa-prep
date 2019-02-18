@@ -28,5 +28,17 @@ Mounting an EFS file system from an EC2 instance in the same AWS Region over a V
     z1d
     
 7= The AWS key management infrastructure uses Federal Information Processing Standards (FIPS) 140-2 approved cryptographic algorithms. The infrastructure is consistent with National Institute of Standards and Technology (NIST) 800-57 recommendations.
-8= 
+8= there is two type of encryption available for EFS
+ * first is  Encrypting Data in Transit
+ Enabling encryption of data in transit for your Amazon EFS file system is done by enabling Transport Layer Security (TLS) when you mount your file system using the Amazon EFS mount helper.
+ 9= Add a rule for the mount target security group to allow inbound access from the EC2 security group over port 2049 as shown following. The EC2 security group is identified as the source.
+ 10= 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ * second is Encrypting Data in Rest
 
