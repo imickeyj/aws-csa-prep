@@ -1,0 +1,22 @@
+DNS operate on port 53
+
+Route 53 is a global service
+
+create record set for registering ec2 IPs of all webservers of a specific domain
+
+1= weighted routing policy   like splitting traffic between 4 webservers in  a 25, 25, 25, 25  percentage
+
+2= we can also do latency based routing of our webservers in create record set in route 53 section
+
+3= we can also use failover routing policy in route 53 
+
+4= geolocation based routing
+
+5= simple 
+
+
+
+
+
+
+
