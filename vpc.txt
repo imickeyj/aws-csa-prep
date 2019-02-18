@@ -1,0 +1,146 @@
+whenever we create a new VPC it by default create a new SG, route table, NACL 
+
+you can not have multiple IGW for a VPC only one per VPC
+
+Security Groups exist within the VPCs
+
+when we create a VPC it by default creates a Route Table, but we cannot use that route table to provide intenet access to a subnet
+so we create a another route table and add route to Newly activated internet Gateway (which get created when we built a new VPC)
+
+create one webserver within PUBLIC Subnet and DB server within private subnet
+
+after that create a security Group and open 3306, All ICMP ports to check ping connectivity, 
+
+now we can ping a server within a private subnet from server within a public subnet
+
+but that server within a private subnet doesnot have internet access (so we are not able to install anything like update patches)
+
+
+NAT instance is still in use (still comes in exam), but people now use NAT gateway.
+
+when creating a NAT instance keep in mind to disable source and destination check on intance
+
+NAT instance must be in public subnet
+
+amount of traffic NAT instance can support depends on instance size
+
+NAT gateway automatically scales up to 10 GBs
+
+AWS automatically assigns Public IPs to NAT Gateways
+No need to patch and also not associated with security group
+
+VPC automatically comes with NACL and by default allows all inbound and outbound traffic
+but when we create custom NACL it by default denys all inbound and outbound traffic
+one subnet is only associated with one NACL and one RT
+allow ephimeral ports in NACL for outbound rules
+
+we can block IP addresses using NACL not security groups
+
+An IGW is provided by default in a default VPC, but not in a manually created VPC. A Public IP address is needed, and of the options provided an ElasticIP is the best option.  
+
+ 
+deleting VPC 
+
+first delete Internet gateway
+
+subnets
+
+route table
+
+at last VPC
+
+
+
+when we make igw attach it to VPC
+
+after that there is default route table when we created a vpc, but we do not use it to route out to internet (otherwise both public and private subnet will be internet facing)
+and we will create a new route table and route out traffic to 0.0.0.0/0 and assocate a subnet (that is going to be ppublic one) 
+
+question related to s3, s3 logging
+ebs encryption
+iam roles and groups 
+security
+elb and alb
+autoscaling
+rds multi az HA
+
+
+
+
+
+ADDING A VOLUME IN EC2 INSTANCE
+
+1= check using lsblk for new attached volume 
+
+2= now make the file system ext3   sudo mkfs -t /dev/xvdf
+
+3= create a directory for mounting new storage volume 
+
+4=  mount new volume using command sudo mound /dev/sdf  /App
+
+5= make an entry in /etc/fstab 
+
+6= validate using df -h
+
+ ADDING SWAP IN LINUX
+ 
+  
+sudo dd if=/dev/zero of=/swapfile count=4096 bs=1MiB
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+sudo nano /etc/fstab
+add this line:
+
+/swapfile   swap    swap    sw  0   0
+
+CIDR VALUES FOR AWS VPCs
+
+
+admin@#@#$$
+ 
+ yum install httpd && service httpd start && echo  'this is webserver 2' >> /var/www/html/index.html 
+ 
+ 10.0.0.0/32     1 IP
+ 10.0.0.0/30     4 IP
+ 10.0.0.0/28     16 IP
+ 10.0.0.0/26     64 IP
+ 10.0.0.0/24     256 IP
+ 10.0.0.0/22     1024 IP
+ 10.0.0.0/20     4096 IP
+
+yum install -y httpd
+yum httpd start
+chkconfig httpd on
+echo 'this is in public subnet 10.0.1.0/24 cidr range' >> /var/www/html/index.html
+
+
+32 1
+31 2
+30 4
+29 8
+28 16
+27 32
+26 64
+25 128
+24 256
+23 512
+22 1024
+21 2048
+20 4096
+19 8192
+18 16384
+17 32768
+16 65536
+
+
+
+
+
+
+
+
+
+
+
