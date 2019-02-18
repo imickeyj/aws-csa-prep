@@ -1,0 +1,32 @@
+1= Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. Amazon EFS has a simple web services interface that allows you to create and configure file systems quickly and easily. The service manages all the file storage infrastructure for you, meaning that you can avoid the complexity of deploying, patching, and maintaining complex file system configurations.
+2= we can create a EFS file system within a VPC in all AZ and can use for all the EC2 instances within that VPC.
+3= to mount a efs in ec2 inatnce first we need to install nfs client
+  sudo yum -y install nfs-utils
+4= create a mount-point directory 
+  mkdir myefsdrive
+5= sudo mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport mount-target-DNS:/   ~/efs-mount-point  
+6= Suppose we have two VPC and one EFS then we can achieve using that single EFS for both VPC using below consideration
+
+Mounting an EFS file system from an EC2 instance in the same AWS Region over a VPC peering connection is supported with only the following EC2 instance types:
+
+    T3
+
+    C5
+
+    C5d
+
+    I3.metal
+
+    M5
+
+    M5d
+
+    R5
+
+    R5d
+
+    z1d
+    
+7= The AWS key management infrastructure uses Federal Information Processing Standards (FIPS) 140-2 approved cryptographic algorithms. The infrastructure is consistent with National Institute of Standards and Technology (NIST) 800-57 recommendations.
+8= 
+
