@@ -9,23 +9,7 @@
 
 Mounting an EFS file system from an EC2 instance in the same AWS Region over a VPC peering connection is supported with only the following EC2 instance types:
 
-    T3
-
-    C5
-
-    C5d
-
-    I3.metal
-
-    M5
-
-    M5d
-
-    R5
-
-    R5d
-
-    z1d
+    T3, C5, C5d, I3.metal, M5, M5d, R5, R5d, z1d
     
 7= The AWS key management infrastructure uses Federal Information Processing Standards (FIPS) 140-2 approved cryptographic algorithms. The infrastructure is consistent with National Institute of Standards and Technology (NIST) 800-57 recommendations.
 8= there is two type of encryption available for EFS
